@@ -45,6 +45,8 @@ const reset = () => {
 //   counterStore.$reset()
 // }
 counterStore.$subscribe((mutation, state) => {
-  console.log('counterStore', mutation, state)
+  if(mutation.storeId === 'counter' && state.count > 5) {
+    counterStore.reset()
+  }
 })
 </script>
